@@ -26,26 +26,36 @@ public class Employee {
 
 	public int bonus() {
 		//haftalık 40 saat limit varsa aylık hesaplamak icin 4 ile carptim
-		if(workHours*4 > 160) {
-			return ((workHours*4)-160)*30;
+//		if(workHours*4 > 160) {
+//			return ((workHours*4)-160)*30;
+//		}
+		if(workHours > 40) {
+			return ((workHours)-40)*30;
 		}
 		return 0;
 	}
 	
 	public double raiseSalary() {
 		if((2021-hireYear) < 10) {
-			return (salary-tax()+bonus())*(0.05);
+			return (salary)*(0.05);
 		}
 		else if((2021-hireYear) >= 10 && (2021-hireYear) < 20) {
-			return (salary-tax()+bonus())*(0.10);
+			return (salary)*(0.10);
 		}
-		return (salary-tax()+bonus())*(0.15);
+		return (salary)*(0.15);
 	}
 
 	
 	public String toString() {
 		return "Adi : "+name+"\nMaas : "+salary+"\nCalisma Saati :"+workHours+"\nBaslangic Yili : "+hireYear+
 				"\nVergi : "+tax()+"\nBonus : "+bonus()+"\nMaas Artisi : "+raiseSalary()
-				+"\nVergi ve Bonuslarla Birlikte Maas : "+(salary-tax()+bonus())+"\nToplam Maas : "+(salary+bonus());
+				+"\nVergi ve Bonuslarla Birlikte Maas : "+(salary-tax()+bonus())+"\nToplam Maas : "+(salary+raiseSalary());
+	}
+}
+
+class FirstCaseMain {
+	public static void main(String[] args) {
+		Employee employee = new Employee("kemal", 2000, 45, 1985);
+		System.out.println(employee.toString());
 	}
 }
