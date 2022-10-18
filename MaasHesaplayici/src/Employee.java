@@ -47,9 +47,9 @@ public class Employee {
 
 	
 	public String toString() {
-		return "Adi : "+name+"\nMaas : "+salary+"\nCalisma Saati :"+workHours+"\nBaslangic Yili : "+hireYear+
+		return "Adi : "+name+"\nMaas : "+salary+"\nCalisma Saati : "+workHours+"\nBaslangic Yili : "+hireYear+
 				"\nVergi : "+tax()+"\nBonus : "+bonus()+"\nMaas Artisi : "+raiseSalary()
-				+"\nVergi ve Bonuslarla Birlikte Maas : "+(salary-tax()+bonus())+"\nToplam Maas : "+(salary+raiseSalary());
+				+"\nVergi ve Bonuslarla Birlikte Maas : "+(salary-tax()+bonus())+"\nToplam Maas : "+(salary+raiseSalary()-tax()+bonus());
 	}
 }
 
